@@ -72,6 +72,9 @@ if uid_button:
 
         except Exception as e:
             gui.markdown(f"쿠폰 {coupon} 사용 실패")
+        
+        finally:
+            driver.quit()
     
     tmp = ""
     for coupon in coupons:
