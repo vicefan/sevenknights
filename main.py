@@ -50,6 +50,8 @@ if uid_button:
         gui.markdown(f"쿠폰 사용 시도: {coupon}")
         url = f"https://coupon.netmarble.com/tskgb?playerId={uid}&code={coupon}"
         driver.get(url)
+        st.code(driver.page_source)
+
 
         try:
             EC.element_to_be_clickable((By.XPATH, use_button))
