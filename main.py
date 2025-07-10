@@ -1,7 +1,7 @@
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.service import Service
 import time
 import streamlit as st
 
@@ -29,10 +29,11 @@ with st.sidebar:
         
 
 # 크롬 드라이버 설정
-options = Options()
+options = webdriver.ChromeOptions()
 options.add_experimental_option('excludeSwitches', ['enable-logging']) # 개발 도구 로그 끄기
 options.add_argument('--headless')  # 헤드리스 모드로 실행
-driver = webdriver.Chrome(options=options)
+service = Service()
+driver = webdriver.Chrome(service=service, options=options)
 
 # UID 입력
 uid = st.text_input("UID를 입력하세요:", value="")
