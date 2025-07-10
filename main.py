@@ -39,6 +39,8 @@ if uid_button:
     options = webdriver.ChromeOptions()
     options.add_experimental_option('excludeSwitches', ['enable-logging']) # 개발 도구 로그 끄기
     options.add_argument('--headless')  # 헤드리스 모드로 실행
+    options.add_argument('--no-sandbox')
+    options.add_argument('--disable-dev-shm-usage')
     service = Service()
     driver = webdriver.Chrome(service=service, options=options)
 
